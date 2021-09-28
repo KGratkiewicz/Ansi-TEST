@@ -1,18 +1,267 @@
 
-# Lorem Ipsum
+# „Hello World!&quot; - Procedury wejścia i wyjścia, proste typy zmiennych.
 
-"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras odio velit, convallis et nunc at, faucibus pellentesque quam. Etiam sagittis sem ac justo dictum, eget lobortis enim imperdiet. Ut mi libero, tincidunt sit amet diam nec, accumsan tempor lectus. Aenean sit amet vehicula tortor, euismod pellentesque diam. Fusce suscipit, dolor sed venenatis efficitur, orci nisl scelerisque nisl, at pulvinar nisl felis et quam. Sed porttitor vitae nibh quis lacinia. In ultrices nunc in sapien mattis malesuada. In non dolor sodales, suscipit sem ut, bibendum risus. Aenean rutrum mi placerat facilisis sodales. Sed blandit erat eget eros gravida, id blandit orci lacinia. Cras vitae mauris dictum, finibus nisl nec, condimentum est. Vestibulum velit elit, consectetur sit amet rutrum vitae, posuere sed tellus. Nunc eleifend dictum risus, quis gravida neque faucibus eu.
+## Zmienne
 
-Quisque gravida, elit fringilla commodo congue, turpis diam aliquam neque, quis commodo nulla lacus vitae ligula. Fusce nec arcu mattis, viverra mauris a, maximus arcu. Praesent sodales efficitur sapien blandit rutrum. Aliquam mollis pellentesque felis, et sodales ante feugiat et. Donec nisl leo, tristique eget purus eu, dictum consectetur massa. Nullam lacinia in arcu eu lacinia. Nam quis commodo enim. Vestibulum elit elit, pretium id arcu et, sodales dictum nulla.
+Zmienna to związek trzech składowych: nazwy, zbioru wartości oraz wybranego elementu zbioru. W praktyce zmienna to zarezerwowane miejsce w pamięci dla pewnej danej wykorzystywanej w programie. W języku C zbiór wartości zmiennej określamy jako typ. Podstawowymi typami zmiennych są:
 
-Integer ac velit eros. Vestibulum porta eu turpis vitae porta. Aenean pharetra sed erat quis aliquet. Cras eu tincidunt massa. Integer ultricies elementum ligula, a bibendum neque dictum sed. Donec scelerisque feugiat quam, id vestibulum quam maximus quis. Morbi faucibus velit in libero ultricies eleifend. Duis ultricies turpis ex, vitae tincidunt purus luctus a.
+- _int –_ zmienna całkowitoliczbowa
+- _char –_ zmienna znakowa
+- _float –_ zmienna liczbowa zmiennoprzecinkowa
+- _double-_ zmienna liczbowa podwójnej precyzji (również zmiennoprzecinkowa)
 
-Aliquam erat volutpat. Proin tempor convallis ultrices. Suspendisse aliquam egestas enim vitae consequat. Etiam urna urna, laoreet ac scelerisque id, ultrices ut purus. Proin ullamcorper enim aliquam metus efficitur commodo. Pellentesque velit purus, cursus sed odio nec, tempor posuere massa. Mauris lacinia hendrerit pharetra. Aenean ac nisl accumsan, egestas nibh eu, vulputate lorem. Nullam sed consequat mauris, in efficitur lorem.
+Aby stworzyć zmienną w C należy podać jej typ oraz nadać jej nazwę: **typ\_zmiennej** nazwa\_zmiennej_ **.** _ Wartość, czyli 3 składowa zmiennej stworzonej w ten sposób, zostanie wybrana losowo lub wyzerowana (w zależności od miejsca w kodzie, w którym zostanie wywołana).
 
-Praesent sed nisi ut neque ullamcorper aliquam. Donec sagittis fringilla orci vitae faucibus. Praesent congue posuere lorem. Aliquam egestas iaculis velit ut convallis. Sed feugiat leo felis, vitae faucibus arcu lacinia sed. Nulla convallis ligula id vehicula semper. Ut blandit mi a lorem suscipit volutpat. Etiam condimentum quis est vitae pretium. Integer vitae justo ac massa posuere luctus efficitur non dolor. Sed nibh ex, placerat sit amet auctor vel, tempor at augue. Phasellus at lobortis lacus. Integer justo magna, hendrerit non tortor et, vulputate aliquam diam. Quisque odio diam, rutrum et augue a, malesuada congue velit. Pellentesque vitae nibh pulvinar, fermentum eros nec, convallis nisl. Aenean et imperdiet nisi.
+_Przykład (1.0) Tworzenie własnych zmiennych_
+```
+#include <stdio.h>
+#include <stdlib.h>
 
-Generated 5 paragraphs, 423 words, 2870 bytes of Lorem Ipsum
-help@lipsum.com
-Privacy Policy
+int main() {	
+	int liczba_calkowita;
+	char znak;
+	float zmiennoprzecinkowa;
+	double podwojnej_precyzji;
+	
+	return 0;
+}
+```
+
+Program z przykładu (1.0), rezerwuje przed rozpoczęciem działania miejsce dla 4 zmiennych o nazwach _liczba\_calkowita, znak, zmiennoprzecinkowa, podwojnej\_precyzji._
+
+## Funkcja _printf_
+
+Funkcje wejścia i wyjścia to podstawowe elementy, używane w programowaniu do komunikacji programu z użytkownikiem. Pozwalają one wypisywać komunikaty oraz pobierać dane od użytkownika. Podstawową funkcją obsługującą wyjście jest _printf._ Pozwala ona wypisać tekst na ekran konsoli. Aby wyświetlić tekst na ekranie konsoli, należy wywołać funkcję poprzez wypisanie jej nazwy wraz z nawiasem tj. _printf()_ oraz wewnątrz nawiasu, podać tekst sterujący (napis). Tekst sterujący to stała łańcuchowa (uproszczając napis zawarty w cudzysłowie) zawierająca znaki zwykłe, sekwencje sterujące i kody formatujące kolejnych argumentów.
+
+_Przykład (1.1) Wyświetlanie tekstu za pomocą printf_
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	printf("Hello World!");
+	return 0;
+}
+```
+
+_Wynik działania programu:_
+
+>Hello World!
+
+Za pomocą funkcji _printf_ można również wyświetlić wartość zmiennej. Aby tego dokonać za pierwszy parametr funkcji podaje się tekst sterujący zawierający odpowiednie kody formatujące, a za drugi zmienną, którą chcemy wyświetlić. Funkcja ta spowoduje zamianę kodu formatującego zawartego w tekście sterującym na wartość zmiennej, podanej w argumencie. Kody formatujące charakteryzują się, wystąpieniem znaku _%_ oraz symbolu (symboli) bez użycia spacji. Podstawowe kody formatujące zgodne z typem wyświetlania:
+
+- %d - zmienna całkowitoliczbowa (int),
+- %c – zmienna znakowa (char),
+- %f – zmienna liczbowa zmiennoprzecinkowa (float),
+- %lf – zmienna liczbowa podwójnej precyzji (double).
+
+Kod formatujący powinien odpowiadać typowi wyświetlanej zmiennej – nie jest to regułą, jednak dla ułatwienia na początku najlepiej używać kodów formatujących zgodnie z typem zmiennej, którą chcemy wyświetlić.
+
+_Przykład (1.2) Wyświetlanie zmiennej za pomocą printf_
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {	
+	int liczba_calkowita = 0;
+	printf("Liczba calkowita: %d", liczba_calkowita);
+
+	return 0;
+}
+```
+
+_Wynik działania programu:_
+
+>Liczba calkowita: 0
+
+Za pomocą funkcji _printf_ można w sposób analogiczny wyświetlić wiele zmiennych, dodając do ciągu znaków więcej kodów formatujących oraz odpowiednią ilość zmiennych, rozdzielonych przecinkami.
+
+_Przykład (1.3) Wyświetlanie wielu zmiennych za pomocą printf_
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {	
+	int liczba_calkowita = 0;
+	char znak = 'a';
+	float zmiennoprzecinkowa = 0.4;
+	printf(" %d %c %f ", liczba_calkowita, znak, zmiennoprzecinkowa);
+	return 0;
+}
+```
+_Wynik działania programu:_
+
+>0 a 0.400000
+
+W przykładach 1.2 i 1.3 został jeszcze użyty operator przypisania „_=_&quot;. Jest on intuicyjny w użyciu i już po przejrzeniu poprzednich przykładów jego działanie nie powinno budzić wątpliwości. Wytłumaczenie jego działania znajduje się w rozdziale 2.
+
+### Funkcja _scanf_
+
+Kolejnym bardzo ważnym elementem jest pobieranie danych od użytkownika. W tym celu użyjemy funkcji wejścia _scanf_ . Jej użycie jest bardzo podobne do użycia funkcji _printf_, tylko że _scanf_ wczytuje zmienne, zamiast je wyświetlać. W celu wywołania funkcji, podajemy jej nazwę oraz dodajemy na końcu nawias _scanf()._ Wewnątrz nawiasu podajemy spodziewany ciąg znaków (najczęściej zbudowany z kodów formatujących) zamknięty cudzysłowem, oraz w kolejnych argumentach podajemy adresy zmiennych, w których chcemy zapisać wartość. Jedyną istotną różnicą w wywołaniu funkcji jest podanie adresu zmiennej w pamięci, który uzyskamy przez podanie operatora _&amp;_ oraz nazwy zmiennej.
+
+_Przykład (1.4) Pobieranie wartości za pomocą scanf_
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {	
+	int liczba_calkowita;
+	scanf(" %d", &liczba_calkowita);
+	return 0;
+}
+```
+
+Po skompilowaniu programu, nie wyświetla się nic, ale program się też nie zakańcza. Migający kursor świadczy jednak o tym, że program czeka na podanie zmiennej przez użytkownika. Po wpisaniu liczby całkowitej, program się kończy a podana przez nas liczba została zapisana do zmiennej. Można to sprawdzić wprowadzając drobne zmiany w przykładzie – wyświetlić wartość zmiennej przed wykonaniem pobrania od użytkownika oraz po pobraniu. Dobrą praktyką jest również podawanie komunikatów na temat tego, jakiego typu zmiennej oczekujemy w _scanf_.
+
+_Przykład (1.5) Pobieranie wartości za pomocą scanf - dowód_
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {	
+	int liczba_calkowita=0;
+	printf("Liczba calkowita przed scanf: %d \n", liczba_calkowita);
+	printf("Podal liczbe calkowita: ");
+	scanf(" %d", &liczba_calkowita);
+	printf("Liczba calkowita po scanf: %d ", liczba_calkowita);
+	return 0;
+}
+```
+
+_Wynik działania programu:_
+
+>Liczba calkowita przed scanf: 0
+>
+>Podal liczbe calkowita: 10
+>
+>Liczba calkowita po scanf: 10
+
+Za pomocą funkcji _scanf_ można pobrać jednocześnie więcej niż jedną wartość zmiennej. Należy to wykonać analogicznie jak w funkcji _printf,_ czyli podać w pierwszym argumencie odpowiednią ilość kodów formatujących, a następnie, taką samą ilość adresów zmiennych w których chcemy zapisać zmienne, oddzielone przecinkami.
+
+_Przykład (1.6) Pobranie wielu wartości za pomocą scanf_
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {	
+	int liczba_calkowita;
+	char znak;
+	float zmiennoprzecinkowa;
+	scanf(" %d %c %f", &liczba_calkowita, &znak, &zmiennoprzecinkowa);
+	return 0;
+}
+```
+
+Wewnątrz tekstu sterującego przydają się też różnego rodzaju znaki specjalne. Dwa z nich, najbardziej kluczowe to:
+
+- \n – znak nowej linii
+- \t – tabulacja pozioma
+
+Użycie któregoś ze znaków specjalnych wewnątrz ciągu do wyświetlenia, spowoduje wykonanie „wykonanie&quot; tego znaku, czyli przejście do linii lub zrobienie tabulacji. Zauważamy, że jest problem, kiedy chcemy wyświetlić znak ukośnika _&#39;\ &#39;_ , aby tego dokonać należy użyć podwójnego ukośnika &#39; \\ &#39;. To samo tyczy się znaku &#39;%&#39; który przeznaczony jest dla kodów formatujących. Aby wypisać znak &#39;%&#39; używamy zapisu podwójnego znaku &#39;%%&#39;.
+
+Dla lepszego wyglądu wyświetlenia lub poprawienia czytelności wyników, wyświetlanie zmiennych można sformatować. Aby to zrobić należy zmodyfikować kody formatujące poprzez dodanie odpowiedniego zapisu między znakiem &#39;%&#39; a oznaczeniem (literą) formatu. W przypadku formatowania liczb całkowitych (int) pomiędzy znak &#39;%&#39; a literę &#39;d&#39; można wstawić liczbę. Taki zapis spowoduje, że każdorazowe wyświetlenie liczby zarezerwuje miejsce przynajmniej dla 3 cyfr.
+
+_Przykład (1.7) Formatowanie wyświetlania liczb całkowitych_
+
+Bez formatowania 
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {	
+	int a=101;
+	int b=13;
+	int c=4;
+	printf("%d \n%d \n%d \n",a,b,c);
+	return 0;
+}
+```
+
+Z formatowaniem
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {	
+	int a=101;
+	int b=13;
+	int c=4;
+	printf("%3d \n%3d \n%3d \n",a,b,c);
+	return 0;
+}
+```
+
+W celu sformatowania wyświetlania liczb zmiennoprzecinkowych (float lub double), pomiędzy znak &#39;%&#39; a znaki &#39;f&#39; lub &#39;lf&#39; można wstawić liczbę całkowitą, działającą w ten sam sposób co dla liczb całkowitych jednak w tym przypadku można dodać jeszcze część niecałkowitą (po przecinku), gdzie liczba znajdująca się po operatorze kropki (w języku C używa się kropki zamiast przecinka), oznacza liczbę miejsc po przecinku, które mają zostać wyświetlone.
+
+_Przykład (1.8) Formatowanie wyświetlania liczb zmiennoprzecinkowych_
+Bez formatowania 
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {	
+	float a=4.440441444;
+	printf("%f",a);
+	return 0;
+}
+```
+
+Z formatowaniem
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {	
+	float a=4.440441444;
+	printf("%4.2f",a);
+	return 0;
+}
+```
+
+### Przykłady do analizy:
+
+_Przykład (1.9) wczytanie zmiennych typu int i float_
+```
+#include <stdio.h> 
+
+int main() { 
+/* deklaracja zmiennych */
+   int age; 
+   float height; 
+   printf("Age and height: "); 
+/* pobranie zmiennych od użytkownika */
+   scanf("%d %f", &age, &height); 
+/* wyświetlenie zmiennych wraz z formatowaniem */
+   printf("Your age: %d\nYour height: %.2f", age, height); 
+   return 0; 
+} 
+```
+_Przykład (1.10) Formatowanie wyświetlania zmiennych typu float_
+```
+#include <stdio.h> 
+
+int main() { 
+   flaot PI=3.14159265359;
+/* te liczby zarezerwują 7 miejsc na wyświetlenie w konsoli */ 
+   printf(".2f = %7.2f\n", PI); /* po przecinku wyświetli 2 miejsca*/
+   printf(".3f = %7.3f\n", PI); /* po przecinku wyświetli 3 miejsca*/
+   printf(".5f = %7.5f\n", PI); /* po przecinku wyświetli 5 miejsc*/
+
+
+} 
+```
+
+### Zadania do samodzielnego wykonania:
+
+1. Napisz program, który przywita się z użytkownikiem, zapyta, ile ma lat (zmienna całkowitoliczbowa) i wyświetli komunikat jaki wiek podał użytkownik.
+
+1. Napisz program, który wyczyta jedną liczbę zmiennoprzecinkową, i wyświetl ją z dokładnością do 1,3,5 miejsc po przecinku. Wczytywanie poprzedź odpowiednim komunikatem.
+***
+[Poprzednia część](google.com) | [Następna część](google.com)
+***
+&copy; Pracownia Modelowania i Analizy Cyberprzestrzeni, Wojskowa Akademia Techniczna
+
+a
