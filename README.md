@@ -263,5 +263,3 @@ int main() {
 [Poprzednia część](google.com) | [Następna część](google.com)
 ***
 &copy; Pracownia Modelowania i Analizy Cyberprzestrzeni, Wojskowa Akademia Techniczna
-
-a
