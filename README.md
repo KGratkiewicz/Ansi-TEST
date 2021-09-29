@@ -10,7 +10,7 @@ Zmienna to związek trzech składowych: nazwy, zbioru wartości oraz wybranego e
 - _float –_ zmienna liczbowa zmiennoprzecinkowa
 - _double-_ zmienna liczbowa podwójnej precyzji (również zmiennoprzecinkowa)
 
-Aby stworzyć zmienną w C należy podać jej typ oraz nadać jej nazwę: **typ\_zmiennej** nazwa\_zmiennej_ **.** _ Wartość, czyli 3 składowa zmiennej stworzonej w ten sposób, zostanie wybrana losowo lub wyzerowana (w zależności od miejsca w kodzie, w którym zostanie wywołana).
+Aby stworzyć zmienną w C należy podać jej typ oraz nadać jej nazwę: **typ\_zmiennej** nazwa\_zmiennej. Wartość, czyli 3 składowa zmiennej stworzonej w ten sposób, zostanie wybrana losowo lub wyzerowana (w zależności od miejsca w kodzie, w którym zostanie wywołana).
 
 _Przykład (1.0) Tworzenie własnych zmiennych_
 ```
@@ -31,7 +31,7 @@ Program z przykładu (1.0), rezerwuje przed rozpoczęciem działania miejsce dla
 
 ## Funkcja _printf_
 
-Funkcje wejścia i wyjścia to podstawowe elementy, używane w programowaniu do komunikacji programu z użytkownikiem. Pozwalają one wypisywać komunikaty oraz pobierać dane od użytkownika. Podstawową funkcją obsługującą wyjście jest _printf._ Pozwala ona wypisać tekst na ekran konsoli. Aby wyświetlić tekst na ekranie konsoli, należy wywołać funkcję poprzez wypisanie jej nazwy wraz z nawiasem tj. _printf()_ oraz wewnątrz nawiasu, podać tekst sterujący (napis). Tekst sterujący to stała łańcuchowa (uproszczając napis zawarty w cudzysłowie) zawierająca znaki zwykłe, sekwencje sterujące i kody formatujące kolejnych argumentów.
+Funkcje wejścia i wyjścia to podstawowe elementy, używane w programowaniu do komunikacji programu z użytkownikiem. Pozwalają one wypisywać komunikaty oraz pobierać dane od użytkownika. Podstawową funkcją obsługującą strumień wyjścia jest printf. Pozwala ona wypisać tekst na ekran konsoli. Aby wyświetlić tekst na ekranie konsoli, należy wywołać funkcję poprzez wypisanie jej nazwy wraz z nawiasem tj. printf() oraz wewnątrz nawiasu, podać tekst sterujący (napis). Tekst sterujący to stała łańcuchowa (uproszczając napis zawarty w cudzysłowie) zawierająca znaki zwykłe, sekwencje sterujące i kody formatujące kolejnych argumentów.
 
 _Przykład (1.1) Wyświetlanie tekstu za pomocą printf_
 ```
@@ -48,7 +48,7 @@ _Wynik działania programu:_
 
 >Hello World!
 
-Za pomocą funkcji _printf_ można również wyświetlić wartość zmiennej. Aby tego dokonać za pierwszy parametr funkcji podaje się tekst sterujący zawierający odpowiednie kody formatujące, a za drugi zmienną, którą chcemy wyświetlić. Funkcja ta spowoduje zamianę kodu formatującego zawartego w tekście sterującym na wartość zmiennej, podanej w argumencie. Kody formatujące charakteryzują się, wystąpieniem znaku _%_ oraz symbolu (symboli) bez użycia spacji. Podstawowe kody formatujące zgodne z typem wyświetlania:
+Za pomocą funkcji _printf_ można również wyświetlić wartość zmiennej. Aby tego dokonać za pierwszy parametr funkcji podaje się tekst sterujący zawierający odpowiednie kody formatujące, a za drugi zmienną, którą chcemy wyświetlić. Funkcja ta spowoduje zamianę kodu formatującego zawartego w tekście sterującym na wartość zmiennej, podanej w argumencie. Kody formatujące charakteryzują się, wystąpieniem następujących po sobie znaku _%_  oraz znaków alfanumerycznych. Podstawowe kody formatujące zgodne z typem wyświetlania:
 
 - %d - zmienna całkowitoliczbowa (int),
 - %c – zmienna znakowa (char),
@@ -93,11 +93,11 @@ _Wynik działania programu:_
 
 >0 a 0.400000
 
-W przykładach 1.2 i 1.3 został jeszcze użyty operator przypisania „_=_&quot;. Jest on intuicyjny w użyciu i już po przejrzeniu poprzednich przykładów jego działanie nie powinno budzić wątpliwości. Wytłumaczenie jego działania znajduje się w rozdziale 2.
+W przykładach 1.2 i 1.3 został jeszcze użyty operator przypisania „_=_&quot;. Jest on intuicyjny w użyciu i już po przejrzeniu poprzednich przykładów jego działanie nie powinno budzić wątpliwości. Wytłumaczenie działania operatorów arytmetycznych znajduje się w rozdziale 2.
 
 ### Funkcja _scanf_
 
-Kolejnym bardzo ważnym elementem jest pobieranie danych od użytkownika. W tym celu użyjemy funkcji wejścia _scanf_ . Jej użycie jest bardzo podobne do użycia funkcji _printf_, tylko że _scanf_ wczytuje zmienne, zamiast je wyświetlać. W celu wywołania funkcji, podajemy jej nazwę oraz dodajemy na końcu nawias _scanf()._ Wewnątrz nawiasu podajemy spodziewany ciąg znaków (najczęściej zbudowany z kodów formatujących) zamknięty cudzysłowem, oraz w kolejnych argumentach podajemy adresy zmiennych, w których chcemy zapisać wartość. Jedyną istotną różnicą w wywołaniu funkcji jest podanie adresu zmiennej w pamięci, który uzyskamy przez podanie operatora _&amp;_ oraz nazwy zmiennej.
+Kolejnym bardzo ważnym elementem jest pobieranie danych od użytkownika. W tym celu użyjemy funkcji wejścia _scanf_ . Jej użycie jest bardzo podobne do użycia funkcji _printf_ tylko, że _scanf_ wczytuje zmienne, zamiast je wyświetlać. W celu wywołania funkcji, podajemy jej nazwę oraz dodajemy na końcu nawias _scanf()._ Wewnątrz nawiasu podajemy spodziewany ciąg znaków (najczęściej zbudowany z kodów formatujących) zamknięty cudzysłowem, oraz w kolejnych argumentach podajemy adresy zmiennych, w których chcemy zapisać wartość. Jedyną istotną różnicą w wywołaniu funkcji jest podanie adresu zmiennej w pamięci, który uzyskamy przez podanie operatora _&amp;_ oraz nazwy zmiennej.
 
 _Przykład (1.4) Pobieranie wartości za pomocą scanf_
 ```
@@ -152,13 +152,14 @@ int main() {
 	return 0;
 }
 ```
+## Formatowanie wyświetlanego tekstu
 
 Wewnątrz tekstu sterującego przydają się też różnego rodzaju znaki specjalne. Dwa z nich, najbardziej kluczowe to:
 
 - \n – znak nowej linii
 - \t – tabulacja pozioma
 
-Użycie któregoś ze znaków specjalnych wewnątrz ciągu do wyświetlenia, spowoduje wykonanie „wykonanie&quot; tego znaku, czyli przejście do linii lub zrobienie tabulacji. Zauważamy, że jest problem, kiedy chcemy wyświetlić znak ukośnika _&#39;\ &#39;_ , aby tego dokonać należy użyć podwójnego ukośnika &#39; \\ &#39;. To samo tyczy się znaku &#39;%&#39; który przeznaczony jest dla kodów formatujących. Aby wypisać znak &#39;%&#39; używamy zapisu podwójnego znaku &#39;%%&#39;.
+Użycie któregoś ze znaków specjalnych wewnątrz ciągu do wyświetlenia, spowoduje wykonanie „wykonanie&quot; tego znaku, czyli przejście do linii lub zrobienie tabulacji. Zauważamy, że jest problem, kiedy chcemy wyświetlić znak ukośnika &#39;\ &#39; , aby tego dokonać należy użyć podwójnego ukośnika &#39; \\ &#39;. To samo tyczy się znaku &#39;%&#39; który przeznaczony jest dla kodów formatujących. Aby wypisać znak &#39;%&#39; używamy zapisu podwójnego znaku &#39;%%&#39;.
 
 Dla lepszego wyglądu wyświetlenia lub poprawienia czytelności wyników, wyświetlanie zmiennych można sformatować. Aby to zrobić należy zmodyfikować kody formatujące poprzez dodanie odpowiedniego zapisu między znakiem &#39;%&#39; a oznaczeniem (literą) formatu. W przypadku formatowania liczb całkowitych (int) pomiędzy znak &#39;%&#39; a literę &#39;d&#39; można wstawić liczbę. Taki zapis spowoduje, że każdorazowe wyświetlenie liczby zarezerwuje miejsce przynajmniej dla 3 cyfr.
 
@@ -260,6 +261,6 @@ int main() {
 
 1. Napisz program, który wyczyta jedną liczbę zmiennoprzecinkową, i wyświetl ją z dokładnością do 1,3,5 miejsc po przecinku. Wczytywanie poprzedź odpowiednim komunikatem.
 ***
-[Poprzednia część](google.com) | [Następna część](google.com)
+[Poprzednia część]() | [Spis treści]() | [Następna część]()
 ***
 &copy; Pracownia Modelowania i Analizy Cyberprzestrzeni, Wojskowa Akademia Techniczna
